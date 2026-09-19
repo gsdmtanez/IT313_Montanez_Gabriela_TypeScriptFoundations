@@ -66,7 +66,7 @@ interface Enrollee {
   final: number;
 }
 
-Enum
+### Enum
 
 The EnrollmentStatus enum stores the two possible enrollment statuses:
 
@@ -77,14 +77,12 @@ export enum EnrollmentStatus {
 
 The enum is used whenever the student's enrollment status is stored or compared.
 
-Type Alias and Union Type
+### Type Alias and Union Type
 
 The project uses a BatchId type alias with a union type:
-
 type BatchId = string | number;
 
-This means that a batch ID can either be a string or a number.
-
+This means that a batch ID can either be a string or a number. 
 The program uses typeof to determine whether the value is a string or a number.
 
 Example:
@@ -95,10 +93,9 @@ if (typeof batchId === "string") {
   console.log(`Batch ID: ${batchId}`);
 }
 
-Functions
+### Functions
 
 The project uses typed functions to perform specific tasks.
-
 The computeAverage() function calculates the average of the Prelim, Midterm, and Final grades.
 
 function computeAverage(
@@ -109,7 +106,7 @@ function computeAverage(
 
 The getStatus() function determines whether a student is Passing or on Probation based on the computed average.
 
-Generics
+### Generics
 
 The project includes a generic groupBy() function:
 
@@ -119,30 +116,26 @@ function groupBy<T>(
 ): Record<string, T[]>
 
 The generic function allows the program to group different types of data based on a specified key.
-
 In this project, it is used to group eligibility reports according to their enrollment status.
 
-Map
+### Map
 
 The map() method is used to transform the list of enrollees into an array of typed EligibilityReport objects.
-
 Each enrollee's average and enrollment status are calculated while creating the report.
 
-Reduce
+### Reduce
 
 The reduce() method is used to calculate the total of all student averages.
-
 The total is then divided by the number of enrollees to calculate the class average.
 
-Promises and Async/Await
+### Promises and Async/Await
 
 The getEnrollees() function returns a Promise containing the enrollee data.
-
 A short delay is used to simulate retrieving data from a registrar system.
 
 The generateReport() function uses async/await to wait for the enrollee data and uses try/catch to handle possible errors.
 
-Template Literals
+### Template Literals
 
 Template literals are used to display the report in a readable format.
 
@@ -152,7 +145,9 @@ console.log(
   `${report.name.padEnd(12)} - Average: ${report.average.toFixed(2)} - ${report.status}${remarks}`
 );
 
-5. Interface vs Type Alias
+---
+
+## 5. Interface vs Type Alias
 
 An interface is used to describe the structure of objects.
 
@@ -171,7 +166,9 @@ type BatchId = string | number;
 
 The main difference demonstrated in this project is that interfaces are used to define object structures, while the type alias is used to define a union type.
 
-6. Project Structure
+---
+
+## 6. Project Structure
 IT313_Montanez_Gabriela_TypeScriptFoundations/
 │
 ├── src/
@@ -216,7 +213,9 @@ README.md
 
 Contains the documentation for the project.
 
-7. How to Run the Project
+---
+
+## 7. How to Run the Project
 Step 1: Install Dependencies
 
 Open the terminal in the project folder and run:
@@ -247,7 +246,10 @@ npx ts-node src/main.ts
 
 The program will generate the enrollment eligibility report in the terminal.
 
-8. Expected Output
+
+---
+
+## 8. Expected Output
 Batch ID: IT313-2026-03
 
 === IT313 Enrollment Eligibility Report (TypeScript) ===
@@ -264,7 +266,10 @@ Students with an average of 75 or higher are classified as PASSING.
 Students with an average below 75 are classified as PROBATION and receive the remark:
 
 Needs consultation
-9. TypeScript Configuration
+
+--- 
+
+## 9. TypeScript Configuration
 
 The project uses a tsconfig.json file to configure the TypeScript compiler.
 
@@ -281,7 +286,9 @@ The project also uses:
 
 The source TypeScript files are stored inside the src folder, while compiled JavaScript files can be placed inside the dist folder
 
-10. Type Checking Demonstration
+---
+
+## 10. Type Checking Demonstration
 
 As part of the laboratory activity, a deliberate type error was introduced by assigning a Boolean value to the BatchId variable.
 
@@ -301,6 +308,8 @@ npx tsc --noEmit
 
 completed without errors.
 
-11. Conclusion
+---
+
+## 11. Conclusion
 
 This laboratory provided practical experience with TypeScript and its type-safe features. The Enrollment Eligibility Checker demonstrates how TypeScript can make JavaScript applications more structured and easier to maintain. The project also shows how interfaces, enums, union types, generics, asynchronous programming, map(), reduce(), and strict type checking can be combined in one application.
