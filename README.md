@@ -211,67 +211,55 @@ IT313_Montanez_Gabriela_TypeScriptFoundations/
 ├── tsconfig.json
 ├── .gitignore
 └── README.md
+
 File Descriptions
 
-src/gradeUtils.ts
-
+# src/gradeUtils.ts
 Contains:
+- `EnrollmentStatus enum`
+- `computeAverage() function`
+- `getStatus() function`
 
-EnrollmentStatus enum
-computeAverage() function
-getStatus() function
-
-src/main.ts
-
+# src/main.ts
 Contains:
+- `Enrollee interface`
+- `EligibilityReport interface`
+- `BatchId union type`
+- `getEnrollees() Promise`
+- `groupBy() generic function`
+- `map() processing`
+- `reduce() calculation`
+- `async/await`
+- `Report output`
 
-Enrollee interface
-EligibilityReport interface
-BatchId union type
-getEnrollees() Promise
-groupBy() generic function
-map() processing
-reduce() calculation
-async/await
-Report output
-
-tsconfig.json
-
+# tsconfig.json
 Contains the TypeScript compiler configuration, including strict type checking.
 
-README.md
-
+# README.md
 Contains the documentation for the project.
 
 ---
 
 ## 7. How to Run the Project
-Step 1: Install Dependencies
-
+# Step 1: Install Dependencies
 Open the terminal in the project folder and run:
-
 npm install
-Step 2: Check the TypeScript Version
 
-Run:
-
+# Step 2: Check the TypeScript Version
+Run: 
 npx tsc --version
 
 The project uses TypeScript version:
-
 Version 5.9.3
-Step 3: Check for TypeScript Errors
 
+# Step 3: Check for TypeScript Errors
 Run:
-
 npx tsc --noEmit
 
 If there are no errors, the TypeScript project passes the type check.
 
-Step 4: Run the Program
-
+# Step 4: Run the Program
 Run:
-
 npx ts-node src/main.ts
 
 The program will generate the enrollment eligibility report in the terminal.
@@ -292,9 +280,7 @@ Class Average: 76.07
 Passing: 3 / 5
 
 Students with an average of 75 or higher are classified as PASSING.
-
 Students with an average below 75 are classified as PROBATION and receive the remark:
-
 Needs consultation
 
 --- 
@@ -302,17 +288,14 @@ Needs consultation
 ## 9. TypeScript Configuration
 
 The project uses a tsconfig.json file to configure the TypeScript compiler.
-
 The project uses strict type checking:
-
 "strict": true
 
 Strict mode helps detect type-related errors during development before the program is executed.
 
 The project also uses:
-
-"rootDir": "./src",
-"outDir": "./dist"
+- `"rootDir": "./src",`
+- `"outDir": "./dist"`
 
 The source TypeScript files are stored inside the src folder, while compiled JavaScript files can be placed inside the dist folder
 
@@ -323,17 +306,13 @@ The source TypeScript files are stored inside the src folder, while compiled Jav
 As part of the laboratory activity, a deliberate type error was introduced by assigning a Boolean value to the BatchId variable.
 
 Example:
-
 const batchId: BatchId = true;
 
 This produces a TypeScript compile-time error because BatchId only accepts a string or number.
-
 The error was fixed by changing the value back to a valid type:
-
 const batchId: BatchId = "IT313-2026-03";
 
 After fixing the error, the command:
-
 npx tsc --noEmit
 
 completed without errors.
