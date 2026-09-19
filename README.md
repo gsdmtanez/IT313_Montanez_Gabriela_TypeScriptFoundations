@@ -66,16 +66,23 @@ interface Enrollee {
   final: number;
 }
 
+ ``` 
+
 ### Enum
 
 The EnrollmentStatus enum stores the two possible enrollment statuses:
 
+```typescript
 export enum EnrollmentStatus {
   Passing = "PASSING",
   Probation = "PROBATION"
 }
 
+ ``` 
 The enum is used whenever the student's enrollment status is stored or compared.
+
+
+---
 
 ### Type Alias and Union Type
 
@@ -87,46 +94,63 @@ The program uses typeof to determine whether the value is a string or a number.
 
 Example:
 
+```typescript
 if (typeof batchId === "string") {
   console.log(`Batch ID: ${batchId.toUpperCase()}`);
 } else {
   console.log(`Batch ID: ${batchId}`);
 }
+```
+
+---
 
 ### Functions
 
 The project uses typed functions to perform specific tasks.
 The computeAverage() function calculates the average of the Prelim, Midterm, and Final grades.
 
+```typescript
 function computeAverage(
   prelim: number,
   midterm: number,
   final: number
 ): number
 
+```
 The getStatus() function determines whether a student is Passing or on Probation based on the computed average.
+
+---
 
 ### Generics
 
 The project includes a generic groupBy() function:
 
+```typescript
 function groupBy<T>(
   items: T[],
   keyFn: (item: T) => string
 ): Record<string, T[]>
 
+```
+
 The generic function allows the program to group different types of data based on a specified key.
 In this project, it is used to group eligibility reports according to their enrollment status.
+
+---
 
 ### Map
 
 The map() method is used to transform the list of enrollees into an array of typed EligibilityReport objects.
 Each enrollee's average and enrollment status are calculated while creating the report.
 
+---
+
 ### Reduce
 
 The reduce() method is used to calculate the total of all student averages.
 The total is then divided by the number of enrollees to calculate the class average.
+
+---
 
 ### Promises and Async/Await
 
@@ -135,15 +159,19 @@ A short delay is used to simulate retrieving data from a registrar system.
 
 The generateReport() function uses async/await to wait for the enrollee data and uses try/catch to handle possible errors.
 
+---
+
 ### Template Literals
 
 Template literals are used to display the report in a readable format.
 
 Example:
 
+```typescript
 console.log(
   `${report.name.padEnd(12)} - Average: ${report.average.toFixed(2)} - ${report.status}${remarks}`
 );
+```
 
 ---
 
@@ -153,12 +181,14 @@ An interface is used to describe the structure of objects.
 
 For example, the Enrollee interface describes the properties that every enrollee must have:
 
+```typescript
 interface Enrollee {
   name: string;
   prelim: number;
   midterm: number;
   final: number;
 }
+```
 
 A type alias is used to create a custom type. In this project, the BatchId type alias allows a value to be either a string or a number:
 
